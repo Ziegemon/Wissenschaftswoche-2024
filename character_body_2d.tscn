@@ -670,6 +670,7 @@ autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/sword_hit"]
 position = Vector2(30, 18.5)
+rotation = 0.0186628
 shape = SubResource("RectangleShape2D_i12e5")
 disabled = true
 
