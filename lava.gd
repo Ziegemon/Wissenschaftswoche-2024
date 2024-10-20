@@ -7,7 +7,6 @@ var lavaRisingCounter = 1     #--> 1
 
 #--------------------------------------------------------------------
 
-
 func _ready() -> void:
 	pass
 
@@ -41,3 +40,5 @@ func lavaRising():
 				print("-----------------------------------")
 				print("Tilemap Position: ", $TileMap.position.y)
 				print("-----------------------------------")
+
+#ganz viel test
