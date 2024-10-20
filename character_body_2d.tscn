@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=3 uid="uid://c3vwut6icn5h4"]
+[gd_scene load_steps=76 format=3 uid="uid://c3vwut6icn5h4"]
 
 [ext_resource type="Texture2D" uid="uid://bv8d07q2q1ay0" path="res://assets/Colour1/Outline/120x80_PNGSheets/_Idle.png" id="1_3oei5"]
 [ext_resource type="Texture2D" uid="uid://c8ckk0l2nhdj8" path="res://assets/Colour1/Outline/120x80_PNGSheets/_AttackNoMovement.png" id="1_4imsf"]
@@ -656,8 +656,6 @@ _data = {
 "attack_3": SubResource("Animation_4jlbi")
 }
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_123ra"]
-
 [node name="Player1" type="CharacterBody2D"]
 position = Vector2(247, 217)
 script = ExtResource("1_5gluw")
@@ -703,10 +701,6 @@ one_shot = true
 
 [node name="roll_cooldown" type="Timer" parent="."]
 one_shot = true
-
-[node name="nur in test5 2" type="CollisionShape2D" parent="."]
-position = Vector2(-16, 61)
-shape = SubResource("WorldBoundaryShape2D_123ra")
 
 [connection signal="timeout" from="attack_cooldown" to="." method="_on_attack_cooldown_timeout"]
 [connection signal="timeout" from="roll_timer" to="." method="_on_roll_timer_timeout"]
