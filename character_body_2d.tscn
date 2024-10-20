@@ -702,8 +702,6 @@ one_shot = true
 [node name="roll_cooldown" type="Timer" parent="."]
 one_shot = true
 
-[node name="nur in test4 2" type="CollisionShape2D" parent="."]
-
 [connection signal="timeout" from="attack_cooldown" to="." method="_on_attack_cooldown_timeout"]
 [connection signal="timeout" from="roll_timer" to="." method="_on_roll_timer_timeout"]
 [connection signal="timeout" from="roll_cooldown" to="." method="_on_roll_cooldown_timeout"]
