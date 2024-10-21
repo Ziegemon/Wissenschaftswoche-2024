@@ -1,6 +1,6 @@
 extends Node2D
 
-var cameraZoomCounter1 = 50000
+var cameraZoomCounter1 = 500
 const cameraZoomNormal = Vector2(2, 2)
 const cameraZoomZoom = Vector2(1, 1)
 
