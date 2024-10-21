@@ -549,6 +549,7 @@ position = Vector2(165, 431)
 position = Vector2(961, 431)
 
 [node name="EndScreenBackground" type="ColorRect" parent="."]
+visible = false
 offset_left = -473.0
 offset_top = -289.0
 offset_right = 1625.0
@@ -619,6 +620,13 @@ theme_override_font_sizes/font_size = 48
 text = "RESTART"
 metadata/_edit_group_ = true
 
+[node name="End Match" type="Button" parent="."]
+offset_top = 610.0
+offset_right = 131.0
+offset_bottom = 648.0
+theme_override_font_sizes/font_size = 21
+text = "END MATCH"
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(576, 331)
 zoom = Vector2(2.2, 2.2)
@@ -632,3 +640,4 @@ texture = ExtResource("9_njhat")
 expand_mode = 1
 
 [connection signal="pressed" from="Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="End Match" to="." method="_on_restart_pressed"]

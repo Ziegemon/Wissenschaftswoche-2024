@@ -77,6 +77,7 @@ func someonWon():
 		$"Lost how high?".visible = true
 		await get_tree().create_timer(1.5).timeout
 		$Restart.visible = true
+		$"End Match".visible = false
 
 	elif Global.score_player_2 == 10:
 		$EndScreenBackground.visible = true
@@ -87,6 +88,7 @@ func someonWon():
 		$"Lost how high?".visible = true
 		await get_tree().create_timer(1.5).timeout
 		$Restart.visible = true
+		$"End Match".visible = false
 
 
 
@@ -100,4 +102,5 @@ func _on_restart_pressed() -> void:
 	$"Won how high?".visible = false
 	$"Lost how high?".visible = false
 	$Restart.visible = false
+	$"End Match".visible = true
 	get_tree().reload_current_scene()
