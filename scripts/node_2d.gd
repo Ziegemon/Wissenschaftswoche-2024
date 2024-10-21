@@ -16,7 +16,6 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	cameraZoom1()
-
 	
 	#$"Player1/CameraZoom_Value".text = (str(cameraZoomCounter1))
 

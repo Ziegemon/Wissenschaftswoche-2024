@@ -18,6 +18,7 @@ func _process(delta: float) -> void:
 
 	lavaRising()
 
+
 #--------------------------------------------------------------------
 #--------------------------------------------------------------------
 
@@ -37,6 +38,8 @@ func lavaRising():
 			else:
 				$TileMap.position.y -= 0.005
 				print(" -----------------------------------")
+				print("lavaRisingCounter: ", lavaRisingCounter)
+				print("lavaRisingSpeed: ", lavaRisngSpeed * lavaRisingCounter)
 				print("Lava Position: ", $TileMap.position.y)
 				print(" -----------------------------------")
 
