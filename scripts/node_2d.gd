@@ -17,7 +17,7 @@ func _ready() -> void:
 	
 	$Restart.visible = false
 	
-	#$Camera2D.zoom = 2.21
+	#$Camera2D.zoom = 2.2
 			#2.21 --> 2560pxl x 1440pxl
 			#x.xx --> 1080pxl x 720pxl
 
