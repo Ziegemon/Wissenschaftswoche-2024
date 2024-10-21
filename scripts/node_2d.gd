@@ -75,6 +75,7 @@ func someonWon():
 		$"Who won".visible = true
 		$"Won how high?".visible = true
 		$"Lost how high?".visible = true
+		await get_tree().create_timer(1.5).timeout
 		$Restart.visible = true
 
 	elif Global.score_player_2 == 10:
@@ -84,11 +85,14 @@ func someonWon():
 		$"Who won".visible = true
 		$"Won how high?".visible = true
 		$"Lost how high?".visible = true
+		await get_tree().create_timer(1.5).timeout
 		$Restart.visible = true
 
 
 
 func _on_restart_pressed() -> void:
+	var health_player_1 = 100
+	var health_player_2 = 100
 	Engine.time_scale = 1
 	Global.score_player_1 = 0
 	Global.score_player_2 = 0
