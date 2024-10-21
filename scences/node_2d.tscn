@@ -545,3 +545,13 @@ grow_vertical = 0
 size_flags_horizontal = 4
 text = "0"
 label_settings = SubResource("LabelSettings_q58yl")
+
+[node name="Restart" type="Button" parent="."]
+offset_left = 451.0
+offset_top = 532.0
+offset_right = 703.0
+offset_bottom = 621.0
+theme_override_font_sizes/font_size = 48
+text = "RESTART"
+
+[connection signal="pressed" from="Restart" to="." method="_on_restart_pressed"]

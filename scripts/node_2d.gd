@@ -14,6 +14,9 @@ func _ready() -> void:
 	$"Who won".visible = false
 	$"Won how high?".visible = false
 	$"Lost how high?".visible = false
+	
+	$Restart.visible = false
+	
 	#$Camera2D.zoom = 2.21
 			#2.21 --> 2560pxl x 1440pxl
 			#x.xx --> 1080pxl x 720pxl
@@ -66,17 +69,31 @@ func updateScoreboard():
 func someonWon():
 	if Global.score_player_1 == 10:
 		$EndScreenBackground.visible = true
-		$EndScreenBackground.color = "1dffff"
-		$"Lost how high?".font_color = "ff0000"
+		$EndScreenBackground.color = "00a0a0"
+		$"Lost how high?".modulate = Color(1, 0, 0)
 		$"Lost how high?".text = (str(Global.score_player_2))
 		$"Who won".visible = true
 		$"Won how high?".visible = true
 		$"Lost how high?".visible = true
-		
+		$Restart.visible = true
+
 	elif Global.score_player_2 == 10:
 		$EndScreenBackground.visible = true
-		$EndScreenBackground.color = "ff0000"
-		$"Lost how high?".font_color = "1dffff"
+		$EndScreenBackground.color = "940000"
+		$"Lost how high?".modulate = Color(29, 255, 255)
 		$"Who won".visible = true
 		$"Won how high?".visible = true
 		$"Lost how high?".visible = true
+		$Restart.visible = true
+
+
+
+func _on_restart_pressed() -> void:
+	Engine.time_scale = 1
+	Global.score_player_1 = 0
+	Global.score_player_2 = 0
+	$"Who won".visible = false
+	$"Won how high?".visible = false
+	$"Lost how high?".visible = false
+	$Restart.visible = false
+	get_tree().reload_current_scene()
