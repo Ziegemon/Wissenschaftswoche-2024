@@ -1,11 +1,11 @@
 [gd_scene load_steps=28 format=4 uid="uid://dkydbwlh6uadk"]
 
-[ext_resource type="Script" path="res://node_2d.gd" id="1_mfn43"]
+[ext_resource type="Script" path="res://scripts/node_2d.gd" id="1_mfn43"]
 [ext_resource type="Texture2D" uid="uid://pasljdg7utgm" path="res://assets/FreeCuteTilesetv1/FreeCuteTileset/Tileset.png" id="2_6n115"]
 [ext_resource type="Texture2D" uid="uid://gtgl3m7q1kv3" path="res://assets/FreeCuteTilesetv1/FreeCuteTileset/BG1.png" id="2_cekuj"]
 [ext_resource type="Texture2D" uid="uid://dehe74bvrpnib" path="res://assets/FreeCuteTilesetv1/FreeCuteTileset/Decors.png" id="4_h3xg4"]
-[ext_resource type="PackedScene" uid="uid://c3vwut6icn5h4" path="res://character_body_2d.tscn" id="5_yd6a6"]
-[ext_resource type="PackedScene" uid="uid://dccl8cia7tuwn" path="res://lava.tscn" id="6_3lcr7"]
+[ext_resource type="PackedScene" uid="uid://c3vwut6icn5h4" path="res://scences/character_body_2d.tscn" id="5_yd6a6"]
+[ext_resource type="PackedScene" uid="uid://dccl8cia7tuwn" path="res://scences/lava.tscn" id="6_3lcr7"]
 [ext_resource type="Texture2D" uid="uid://bve20dqaghlqc" path="res://assets/Dimensional_Portal.png" id="7_xbdxh"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_yb5hn"]
