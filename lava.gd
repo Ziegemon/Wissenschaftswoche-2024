@@ -30,15 +30,13 @@ func lavaRising():
 			if lavaRisingCounter < 10:
 				$TileMap.position.y = $TileMap.position.y - (lavaRisngSpeed * lavaRisingCounter)
 				lavaRisingCounter += 0.001
-				print("-----------------------------------")
+				print(" -----------------------------------")
 				print("lavaRisingCounter: ", lavaRisingCounter)
 				print("lavaRisingSpeed: ", lavaRisngSpeed * lavaRisingCounter)
 				print("Tilemap Position: ", $TileMap.position.y)
-				print("-----------------------------------")
+				print(" -----------------------------------")
 			else:
 				$TileMap.position.y -= 0.005
-				print("-----------------------------------")
+				print(" -----------------------------------")
 				print("Tilemap Position: ", $TileMap.position.y)
-				print("-----------------------------------")
-
-#ganz viel test
+				print(" -----------------------------------")
