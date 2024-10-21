@@ -89,6 +89,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		if animated_sprite_2d.animation != "death":
 			animated_sprite_2d.play("death")
+			Global.score_player_1 += 1
 			Engine.time_scale = 0.5
 			$reset_timer.start()
 

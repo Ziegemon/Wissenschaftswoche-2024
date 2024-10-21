@@ -15,6 +15,8 @@ var direction = 0
 var health = 100
 var alive = true
 
+var score_player_1 = 00
+
 
 func _physics_process(delta: float) -> void:
 	
@@ -89,6 +91,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		if animated_sprite_2d.animation != "death":
 			animated_sprite_2d.play("death")
+			Global.score_player_2 += 1
 			Engine.time_scale = 0.5
 			$reset_timer.start()
 
