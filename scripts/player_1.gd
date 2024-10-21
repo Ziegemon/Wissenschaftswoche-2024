@@ -6,7 +6,7 @@ extends CharacterBody2D
 
 const DASH_SPEED = 1.4
 const SPEED = 200.0
-const JUMP_VELOCITY = -350.0
+const JUMP_VELOCITY = -425.0
 
 var attacking = false
 var rolling = false
