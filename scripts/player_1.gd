@@ -91,7 +91,6 @@ func _physics_process(delta: float) -> void:
 			animated_sprite_2d.play("death")
 			Engine.time_scale = 0.5
 			$reset_timer.start()
-			
 
 func _on_attack_cooldown_timeout() -> void:
 	attacking = false
@@ -124,13 +123,10 @@ func take_damage(damage):
 func player_1():
 	pass
 
-
 func _on_reset_timer_timeout() -> void:
 	Engine.time_scale = 1
 	get_tree().reload_current_scene()
 	
-
-
 func borderTeleport(body: CharacterBody2D):
 	if body.position.x <= 0:
 		body.position.x = 1147

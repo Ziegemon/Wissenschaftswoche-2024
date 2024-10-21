@@ -127,7 +127,6 @@ func _on_reset_timer_timeout() -> void:
 	Engine.time_scale = 1
 	get_tree().reload_current_scene()
 
-
 func borderTeleport(body: CharacterBody2D):
 	if body.position.x <= 0:
 		body.position.x = 1147

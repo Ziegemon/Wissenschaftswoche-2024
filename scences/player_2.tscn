@@ -733,7 +733,7 @@ _data = {
 }
 
 [node name="player_2" type="CharacterBody2D"]
-modulate = Color(0.113725, 1, 1, 1)
+modulate = Color(1, 0, 0, 1)
 script = ExtResource("1_77x5b")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
