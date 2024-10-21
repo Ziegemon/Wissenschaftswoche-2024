@@ -1,4 +1,4 @@
-[gd_scene load_steps=87 format=3 uid="uid://dmd0adi24i7fk"]
+[gd_scene load_steps=88 format=3 uid="uid://dmd0adi24i7fk"]
 
 [ext_resource type="Texture2D" uid="uid://bv8d07q2q1ay0" path="res://assets/Colour1/Outline/120x80_PNGSheets/_Idle.png" id="1_3oei5"]
 [ext_resource type="Texture2D" uid="uid://c8ckk0l2nhdj8" path="res://assets/Colour1/Outline/120x80_PNGSheets/_AttackNoMovement.png" id="1_4imsf"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://ss4hx5548dk2" path="res://assets/Colour1/NoOutline/120x80_PNGSheets/_DeathNoMovement.png" id="5_jksjm"]
 [ext_resource type="Texture2D" uid="uid://bhf2l1mvp3f7" path="res://assets/Colour1/Outline/120x80_PNGSheets/_Jump.png" id="6_uc4w7"]
 [ext_resource type="Texture2D" uid="uid://buyois7mdxxe7" path="res://assets/Colour1/Outline/120x80_PNGSheets/_Roll.png" id="7_cidg7"]
+[ext_resource type="FontFile" uid="uid://d2nw867cp0wxx" path="res://assets/Fonts/lemon_milk/LEMONMILK-Light.otf" id="11_qe5r5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x5xvn"]
 atlas = ExtResource("1_4imsf")
@@ -748,7 +749,7 @@ autoplay = "idle"
 [node name="sword_hit" type="Area2D" parent="AnimatedSprite2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/sword_hit"]
-position = Vector2(30, 18.5)
+position = Vector2(26.5, 18.5)
 shape = SubResource("RectangleShape2D_i12e5")
 disabled = true
 
@@ -773,6 +774,17 @@ one_shot = true
 
 [node name="reset_timer" type="Timer" parent="."]
 one_shot = true
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = -29.0
+offset_top = -61.0
+offset_right = 29.0
+offset_bottom = -41.0
+theme_override_fonts/font = ExtResource("11_qe5r5")
+theme_override_font_sizes/font_size = 12
+step = 1.0
+value = 100.0
+metadata/_edit_use_anchors_ = true
 
 [connection signal="body_entered" from="AnimatedSprite2D/sword_hit" to="." method="_on_sword_hit_body_entered"]
 [connection signal="timeout" from="attack_cooldown" to="." method="_on_attack_cooldown_timeout"]

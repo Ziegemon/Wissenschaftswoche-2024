@@ -12,7 +12,6 @@ var attacking = false
 var rolling = false
 var can_roll = true
 var direction = 0
-var health = 100
 var alive = true
 
 var score_player_1 = 00
@@ -21,8 +20,9 @@ var score_player_1 = 00
 func _physics_process(delta: float) -> void:
 	
 	borderTeleport($".")
+	healthbarUpdate()
 	
-	if health <= 0:
+	if Global.health_player_1 <= 0:
 		alive = false
 	if alive == true:
 		# Add the gravity.
@@ -91,6 +91,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		if animated_sprite_2d.animation != "death":
 			animated_sprite_2d.play("death")
+			$ProgressBar.visible = false
 			Global.score_player_2 += 1
 			Engine.time_scale = 0.5
 			$reset_timer.start()
@@ -121,17 +122,24 @@ func _on_sword_hit_body_entered(body: CharacterBody2D) -> void:
 			body.take_damage(40)
 
 func take_damage(damage):
-	health -= damage
+	Global.health_player_1 -= damage
 
 func player_1():
 	pass
 
 func _on_reset_timer_timeout() -> void:
 	Engine.time_scale = 1
+	$ProgressBar.visible = true
+	Global.health_player_1 = 100
+	Global.health_player_2 = 100
 	get_tree().reload_current_scene()
+	
 	
 func borderTeleport(body: CharacterBody2D):
 	if body.position.x <= 0:
 		body.position.x = 1147
 	elif body.position.x >= 1151:
 		body.position.x = 1
+
+func healthbarUpdate():
+	$ProgressBar.value = Global.health_player_1

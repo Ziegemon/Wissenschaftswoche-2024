@@ -495,8 +495,10 @@ position = Vector2(165, 431)
 position = Vector2(961, 431)
 
 [node name="EndScreenBackground" type="ColorRect" parent="."]
-offset_right = 1152.0
-offset_bottom = 648.0
+offset_left = -473.0
+offset_top = -289.0
+offset_right = 1625.0
+offset_bottom = 937.0
 color = Color(0, 0, 0, 1)
 
 [node name="Who won" type="Label" parent="."]
