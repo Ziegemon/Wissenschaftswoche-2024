@@ -35,10 +35,10 @@ func lavaRising():
 				print("Lava Position: ", $TileMap.position.y)
 				print(" -----------------------------------")
 			else:
-				$TileMap.position.y -= 0.1005
+				$TileMap.position.y -= 0.005
 				print(" -----------------------------------")
 				print("Lava Position: ", $TileMap.position.y)
 				print(" -----------------------------------")
 
 func _on_area_2d_body_entered(body: CharacterBody2D) -> void:
-	body.take_dammage(1000)
+	body.take_damage(1000)
