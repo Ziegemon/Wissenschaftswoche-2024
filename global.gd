@@ -10,9 +10,6 @@ var lavaON = true             #extra difficulty --> true/false
 var lavaRisngSpeed = 0.0005   #balanced --> 0.0005
 var lavaRisingCounter = 1     #--> 1
 
-var winner_player_1 = false
-var winner_player_2 = false
-
 var game_paused = false
 
 
