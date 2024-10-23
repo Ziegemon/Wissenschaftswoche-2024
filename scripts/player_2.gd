@@ -19,13 +19,17 @@ var sound_attack_1 = preload("res://sounds/sword-sound-effect-1.mp3")
 var sound_attack_2 = preload("res://sounds/sword-sound-effect-2.mp3")
 var sound_jump = preload("res://sounds/Mario_jump_sound.mp3")
 var sound_damage_uhh = preload("res://sounds/uhh_hurt.mp3")
-var sound_running = preload("res://sounds/running-sounds.mp3")
+var sound_running = preload("res://sounds/running-cutted.wav")
+
+var is_on_ground = true
+var is_playing_sound = false
 
 
 func _physics_process(delta: float) -> void:
 	
 	borderTeleport($".")
 	healthbarUpdate()
+	runningSounds()
 	
 	if Global.game_paused == false:
 		if Global.health_player_2 <= 0:
@@ -35,6 +39,7 @@ func _physics_process(delta: float) -> void:
 			if not is_on_floor():
 				velocity += get_gravity() * delta
 			if rolling == false:
+				$CollisionShape2D.scale = Vector2(1, 1)
 				
 				if attacking == false || animation_player.current_animation == "attack_1":
 						# Handle jump.
@@ -63,9 +68,11 @@ func _physics_process(delta: float) -> void:
 				if direction == 1:
 					$AnimatedSprite2D.scale.x = 1
 					$CollisionShape2D.scale.x = 1
+					
 				if direction == -1:
 					$AnimatedSprite2D.scale.x = -1
 					$CollisionShape2D.scale.x =-1
+					
 				if attacking == false:
 					
 					if Input.is_action_just_pressed("attack_1_p_2"):
@@ -101,16 +108,21 @@ func _physics_process(delta: float) -> void:
 							
 				if attacking == false:
 					if is_on_floor():
+						$CollisionShape2D.scale = Vector2(1, 1)
 						if direction == 0:
 							animated_sprite_2d.play("idle")
 						else:
 							animated_sprite_2d.play("run")
 					else:
 						animated_sprite_2d.play("jump")
+						$CollisionShape2D.scale = Vector2(1, 0.8)
 				elif animation_player.current_animation == "attack_1":
 					pass
 				else:
 					velocity.x = 0
+					
+			elif rolling == true && !is_on_floor():
+				$CollisionShape2D.scale = Vector2(0.7, 0.5)
 			
 			if Input.is_action_just_pressed("roll_p_2") and can_roll:
 				$roll_timer.start()
@@ -191,6 +203,20 @@ func healthbarUpdate():
 	$ProgressBar.value = Global.health_player_2
 
 
-func raiseGame():
-	if Global.lavaAtCerteinHeight == true:
-		$ProgressBar.position.y = $ProgressBar.position.y - 0.036
+#func raiseGame():
+	#if Global.lavaAtCerteinHeight == true:
+		#$ProgressBar.position.y = $ProgressBar.position.y - 0.036
+
+
+func runningSounds():
+	var is_moving = Input.is_action_pressed("move_left_p_2") || Input.is_action_pressed("move_right_p_2")
+	
+	if is_moving && is_on_floor():
+		if !is_playing_sound:
+			$Sound_running.play()
+			is_playing_sound = true
+		
+	elif !is_moving || !is_on_floor():
+		if is_playing_sound:
+			$Sound_running.stop()
+			is_playing_sound = false

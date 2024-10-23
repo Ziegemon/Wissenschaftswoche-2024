@@ -1,0 +1,74 @@
+[gd_scene load_steps=3 format=3 uid="uid://4p48wad4sy5u"]
+
+[ext_resource type="Script" path="res://scripts/endscreen.gd" id="1_2jfj3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_k7epb"]
+font_size = 64
+
+[node name="Endscreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2jfj3")
+
+[node name="EndScreenBackground" type="ColorRect" parent="."]
+offset_left = -229.0
+offset_top = -281.0
+offset_right = 1869.0
+offset_bottom = 945.0
+color = Color(0, 0, 0, 1)
+
+[node name="Who won" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.207
+anchor_right = 0.5
+anchor_bottom = 0.207
+offset_left = -198.0
+offset_top = -44.136
+offset_right = 197.0
+offset_bottom = 43.864
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "Player 1 won
+"
+label_settings = SubResource("LabelSettings_k7epb")
+
+[node name="Won how high?" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.468
+anchor_right = 0.5
+anchor_bottom = 0.468
+offset_left = -43.0
+offset_top = -89.264
+offset_right = 42.0
+offset_bottom = 89.736
+size_flags_horizontal = 4
+text = "10
+----"
+label_settings = SubResource("LabelSettings_k7epb")
+
+[node name="Lost how high?" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.498
+anchor_top = 0.667
+anchor_right = 0.498
+anchor_bottom = 0.667
+offset_left = -19.696
+offset_top = -41.216
+offset_right = 20.304
+offset_bottom = 41.784
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 60
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1

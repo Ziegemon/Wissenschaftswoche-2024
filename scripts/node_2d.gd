@@ -12,6 +12,8 @@ var init_pos_player_2 = Vector2()
 
 var raiseGameValue = 0
 
+var lavaWarned = false
+
 #--------------------------------------------------------------------
 
 
@@ -26,6 +28,9 @@ func _ready() -> void:
 	
 	init_pos_player_1 = $player_1.position
 	init_pos_player_2 = $player_2.position
+
+	
+	$AchtungLava.visible = false
 	
 	#$Camera2D.zoom = 2.2
 			#2.21 --> 2560pxl x 1440pxl
@@ -40,8 +45,7 @@ func _process(delta: float) -> void:
 	updateScoreboard()
 	someoneWon3()
 	raiseGame2()
-
-	triggerEndgame()
+	LavaWarning()
 	#$"Player1/CameraZoom_Value".text = (str(cameraZoomCounter1))
 
 
@@ -180,6 +184,7 @@ func triggerEndgame():
 		Global.player_died = false
 		
 		if Global.score_player_1 >= 10 || Global.score_player_2 >= 10:
+			$Camera2D.position.y = 331
 			Global.game_paused = true
 			$Music.stream = sound_celebration
 			$Music.play()
@@ -194,6 +199,11 @@ func triggerEndgame():
 				$"Lost how high?".modulate = Color(1, 0, 0)
 				$"Lost how high?".text = (str(Global.score_player_2))
 				Global.score_player_1 = 0
+				for n in 30:
+					$"Who won".scale = Vector2(1.5, 1.5)
+					await get_tree().create_timer(0.2).timeout
+					$"Who won".scale = Vector2(1, 1)
+					await get_tree().create_timer(0.2).timeout
 
 			elif Global.score_player_2 >= 10:
 				$"Who won".text = "Player 2 won!"
@@ -203,7 +213,11 @@ func triggerEndgame():
 				Global.score_player_2 = 0
 
 			$"End Match".visible = false
-			await get_tree().create_timer(3.5).timeout
+			for n in 30:
+					$"Who won".scale = Vector2(1.5, 1.5)
+					await get_tree().create_timer(0.2).timeout
+					$"Who won".scale = Vector2(1, 1)
+					await get_tree().create_timer(0.2).timeout
 			$Restart.visible = true
 
 		else:
@@ -252,6 +266,8 @@ func _on_restart_pressed() -> void:
 	
 	$player_1.position = init_pos_player_1
 	$player_2.position = init_pos_player_2
+	$Camera2D.position.y = 331
+	
 	Global.health_player_2 = 100
 	Global.health_player_2 = 100
 	Global.score_player_1 = 0
@@ -264,9 +280,11 @@ func _on_restart_pressed() -> void:
 	
 	Engine.time_scale = 1
 	
-	$"Who won".visible = false
-	$"Won how high?".visible = false
-	$"Lost how high?".visible = false
+	Global.resetEndscreen = true
+	
+	#$"Who won".visible = false
+	#$"Won how high?".visible = false
+	#$"Lost how high?".visible = false
 	$Restart.visible = false
 	$"End Match".visible = true
 	
@@ -302,4 +320,37 @@ func raiseGame2():
 		$"CPG-Logo-Bild".position.y =raiseGameValue + 239
 		$"End Match".position.y =raiseGameValue + 279
 		$ExitGame.position.y = raiseGameValue + 241
-	
+
+
+func LavaWarning():
+	if (Global.lavaHeight <= 675 && Global.lavaHeight >= 670) && lavaWarned == false:
+		lavaWarned == true
+		for n in 15:
+			$AchtungLava.visible = true
+			await get_tree().create_timer(0.4).timeout
+			$AchtungLava.visible = false
+			await get_tree().create_timer(0.4).timeout
+
+
+
+
+
+
+
+
+
+
+
+
+
+#aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+#aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+#aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+#aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+#
+#trigger endgame neue szene
+#
+#aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+#aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+#aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+#aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa

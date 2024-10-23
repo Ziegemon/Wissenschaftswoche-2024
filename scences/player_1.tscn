@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://buyois7mdxxe7" path="res://assets/Colour1/Outline/120x80_PNGSheets/_Roll.png" id="7_cidg7"]
 [ext_resource type="FontFile" uid="uid://d2nw867cp0wxx" path="res://assets/Fonts/lemon_milk/LEMONMILK-Light.otf" id="11_qe5r5"]
 [ext_resource type="AudioStream" uid="uid://brvfjsgil8ff1" path="res://sounds/sword-sound-effect-1.mp3" id="12_gsyjb"]
-[ext_resource type="AudioStream" uid="uid://bimik5msg82dp" path="res://sounds/running-sounds.mp3" id="13_yi815"]
+[ext_resource type="AudioStream" uid="uid://fcujdqa81sbn" path="res://sounds/running-cutted.wav" id="13_1rdv5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x5xvn"]
 atlas = ExtResource("1_4imsf")
@@ -793,7 +793,7 @@ metadata/_edit_use_anchors_ = true
 stream = ExtResource("12_gsyjb")
 
 [node name="Sound_running" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("13_yi815")
+stream = ExtResource("13_1rdv5")
 
 [node name="CoyoteTimer" type="Timer" parent="."]
 wait_time = 0.5
