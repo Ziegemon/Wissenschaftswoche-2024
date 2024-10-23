@@ -796,7 +796,7 @@ stream = ExtResource("12_gsyjb")
 stream = ExtResource("13_yi815")
 
 [node name="CoyoteTimer" type="Timer" parent="."]
-wait_time = 0.15
+wait_time = 0.5
 one_shot = true
 
 [connection signal="body_entered" from="AnimatedSprite2D/sword_hit" to="." method="_on_sword_hit_body_entered"]

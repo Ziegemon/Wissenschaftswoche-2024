@@ -15,7 +15,6 @@ var can_roll = true
 var direction = 0
 var alive = true
 
-
 var sound_attack_1 = preload("res://sounds/sword-sound-effect-1.mp3")
 var sound_attack_2 = preload("res://sounds/sword-sound-effect-2.mp3")
 var sound_jump = preload("res://sounds/Mario_jump_sound.mp3")

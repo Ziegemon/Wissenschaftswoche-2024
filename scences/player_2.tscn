@@ -540,8 +540,8 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3jo11"]
 size = Vector2(34, 42)
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2npb0"]
-height = 36.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rkui2"]
+size = Vector2(20, 37)
 
 [sub_resource type="Animation" id="Animation_xvga0"]
 length = 0.001
@@ -737,6 +737,7 @@ _data = {
 [node name="player_2" type="CharacterBody2D"]
 modulate = Color(1, 0, 0, 1)
 script = ExtResource("1_77x5b")
+metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(4, -40)
@@ -754,8 +755,8 @@ shape = SubResource("RectangleShape2D_3jo11")
 disabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -18)
-shape = SubResource("CapsuleShape2D_2npb0")
+position = Vector2(0, -18.5)
+shape = SubResource("RectangleShape2D_rkui2")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -790,6 +791,10 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Sound_attack_player_2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_5nlwc")
+
+[node name="CoyoteTimer" type="Timer" parent="."]
+wait_time = 0.25
+one_shot = true
 
 [connection signal="body_entered" from="AnimatedSprite2D/sword_hit" to="." method="_on_sword_hit_body_entered"]
 [connection signal="timeout" from="attack_cooldown" to="." method="_on_attack_cooldown_timeout"]

@@ -65,6 +65,7 @@ func _process(delta: float) -> void:
 
 func _on_area_2d_body_entered(body: CharacterBody2D) -> void:
 	body.take_damage(1000)
+	Input.start_joy_vibration(0,1,1,0.5)
 
 
 #-------------------------------------------------------------------
