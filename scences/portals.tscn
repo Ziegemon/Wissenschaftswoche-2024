@@ -1,0 +1,198 @@
+[gd_scene load_steps=9 format=3 uid="uid://xbvf6opderkw"]
+
+[ext_resource type="Texture2D" uid="uid://bve20dqaghlqc" path="res://Dimensional_Portal.png" id="1_dtem0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lf3tf"]
+atlas = ExtResource("1_dtem0")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1npj7"]
+atlas = ExtResource("1_dtem0")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ulev"]
+atlas = ExtResource("1_dtem0")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mst87"]
+atlas = ExtResource("1_dtem0")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qk2aj"]
+atlas = ExtResource("1_dtem0")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ag62"]
+atlas = ExtResource("1_dtem0")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jiahi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lf3tf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1npj7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ulev")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mst87")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qk2aj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ag62")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.0
+}]
+
+[node name="Portals" type="Node2D"]
+
+[node name="Portal left" type="AnimatedSprite2D" parent="."]
+position = Vector2(4, 169.018)
+rotation = 3.14159
+scale = Vector2(2.625, 11.3371)
+sprite_frames = SubResource("SpriteFrames_jiahi")
+autoplay = "default"
+
+[node name="Portal left2" type="AnimatedSprite2D" parent="."]
+position = Vector2(4.00046, -170.606)
+rotation = 3.14159
+scale = Vector2(2.625, 11.3371)
+sprite_frames = SubResource("SpriteFrames_jiahi")
+autoplay = "default"
+
+[node name="Portal left3" type="AnimatedSprite2D" parent="."]
+position = Vector2(4, -509.982)
+rotation = 3.14159
+scale = Vector2(2.625, 11.3371)
+sprite_frames = SubResource("SpriteFrames_jiahi")
+autoplay = "default"
+
+[node name="Portal left4" type="AnimatedSprite2D" parent="."]
+position = Vector2(4.00046, -849.606)
+rotation = 3.14159
+scale = Vector2(2.625, 11.3371)
+sprite_frames = SubResource("SpriteFrames_jiahi")
+autoplay = "default"
+
+[node name="Portal left5" type="AnimatedSprite2D" parent="."]
+position = Vector2(4, -1188.98)
+rotation = 3.14159
+scale = Vector2(2.625, 11.3371)
+sprite_frames = SubResource("SpriteFrames_jiahi")
+autoplay = "default"
+
+[node name="Portal left6" type="AnimatedSprite2D" parent="."]
+position = Vector2(4.00046, -1528.61)
+rotation = 3.14159
+scale = Vector2(2.625, 11.3371)
+sprite_frames = SubResource("SpriteFrames_jiahi")
+autoplay = "default"
+
+[node name="Portal left7" type="AnimatedSprite2D" parent="."]
+position = Vector2(4, -1867.98)
+rotation = 3.14159
+scale = Vector2(2.625, 11.3371)
+sprite_frames = SubResource("SpriteFrames_jiahi")
+autoplay = "default"
+
+[node name="Portal left8" type="AnimatedSprite2D" parent="."]
+position = Vector2(5.00046, -2207.61)
+rotation = 3.14159
+scale = Vector2(2.625, 11.3371)
+sprite_frames = SubResource("SpriteFrames_jiahi")
+autoplay = "default"
+
+[node name="Portal left9" type="AnimatedSprite2D" parent="."]
+position = Vector2(5, -2546.98)
+rotation = 3.14159
+scale = Vector2(2.625, 11.3371)
+sprite_frames = SubResource("SpriteFrames_jiahi")
+autoplay = "default"
+
+[node name="Portal left10" type="AnimatedSprite2D" parent="."]
+position = Vector2(4.00046, -2886.61)
+rotation = 3.14159
+scale = Vector2(2.625, 11.3371)
+sprite_frames = SubResource("SpriteFrames_jiahi")
+autoplay = "default"
+
+[node name="Portal left11" type="AnimatedSprite2D" parent="."]
+position = Vector2(4, -3225.98)
+rotation = 3.14159
+scale = Vector2(2.625, 11.3371)
+sprite_frames = SubResource("SpriteFrames_jiahi")
+autoplay = "default"
+
+[node name="Portal right" type="AnimatedSprite2D" parent="."]
+position = Vector2(1148, 168.393)
+scale = Vector2(2.625, 11.3371)
+sprite_frames = SubResource("SpriteFrames_jiahi")
+autoplay = "default"
+
+[node name="Portal right2" type="AnimatedSprite2D" parent="."]
+position = Vector2(1148, -171.231)
+scale = Vector2(2.625, 11.3371)
+sprite_frames = SubResource("SpriteFrames_jiahi")
+autoplay = "default"
+
+[node name="Portal right3" type="AnimatedSprite2D" parent="."]
+position = Vector2(1148, -510.607)
+scale = Vector2(2.625, 11.3371)
+sprite_frames = SubResource("SpriteFrames_jiahi")
+autoplay = "default"
+
+[node name="Portal right4" type="AnimatedSprite2D" parent="."]
+position = Vector2(1148, -850.231)
+scale = Vector2(2.625, 11.3371)
+sprite_frames = SubResource("SpriteFrames_jiahi")
+autoplay = "default"
+
+[node name="Portal right5" type="AnimatedSprite2D" parent="."]
+position = Vector2(1148, -1189.61)
+scale = Vector2(2.625, 11.3371)
+sprite_frames = SubResource("SpriteFrames_jiahi")
+autoplay = "default"
+
+[node name="Portal right6" type="AnimatedSprite2D" parent="."]
+position = Vector2(1148, -1529.23)
+scale = Vector2(2.625, 11.3371)
+sprite_frames = SubResource("SpriteFrames_jiahi")
+autoplay = "default"
+
+[node name="Portal right7" type="AnimatedSprite2D" parent="."]
+position = Vector2(1148, -1868.61)
+scale = Vector2(2.625, 11.3371)
+sprite_frames = SubResource("SpriteFrames_jiahi")
+autoplay = "default"
+
+[node name="Portal right8" type="AnimatedSprite2D" parent="."]
+position = Vector2(1148, -2208.23)
+scale = Vector2(2.625, 11.3371)
+sprite_frames = SubResource("SpriteFrames_jiahi")
+autoplay = "default"
+
+[node name="Portal right9" type="AnimatedSprite2D" parent="."]
+position = Vector2(1148, -2547.61)
+scale = Vector2(2.625, 11.3371)
+sprite_frames = SubResource("SpriteFrames_jiahi")
+autoplay = "default"
+
+[node name="Portal right10" type="AnimatedSprite2D" parent="."]
+position = Vector2(1148, -2887.23)
+scale = Vector2(2.625, 11.3371)
+sprite_frames = SubResource("SpriteFrames_jiahi")
+autoplay = "default"
+
+[node name="Portal right11" type="AnimatedSprite2D" parent="."]
+position = Vector2(1148, -3226.61)
+scale = Vector2(2.625, 11.3371)
+sprite_frames = SubResource("SpriteFrames_jiahi")
+autoplay = "default"

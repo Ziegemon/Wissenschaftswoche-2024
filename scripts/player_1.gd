@@ -3,6 +3,7 @@ extends CharacterBody2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var attack_cooldown: Timer = $attack_cooldown
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var coyote_timer = $CoyoteTimer
 
 const DASH_SPEED = 1.4
 const SPEED = 200.0
@@ -19,6 +20,8 @@ var sound_attack_1 = preload("res://sounds/sword-sound-effect-1.mp3")
 var sound_attack_2 = preload("res://sounds/sword-sound-effect-2.mp3")
 var sound_jump = preload("res://sounds/Mario_jump_sound.mp3")
 var sound_damage_uhh = preload("res://sounds/uhh_hurt.mp3")
+var sound_running = preload("res://sounds/running-sounds.mp3")
+
 
 func _physics_process(delta: float) -> void:
 	
@@ -34,17 +37,20 @@ func _physics_process(delta: float) -> void:
 				velocity += get_gravity() * delta
 			if rolling == false:
 					# Handle jump.
-				if Input.is_action_just_pressed("jump_p_1") and is_on_floor():
-					velocity.y = JUMP_VELOCITY
-					$Sound_attack_player_1.stream = sound_jump
-					$Sound_attack_player_1.play()
+				if attacking == false || animation_player.current_animation == "attack_1":
+					if Input.is_action_just_pressed("jump_p_1") && (is_on_floor() || !coyote_timer.is_stopped()):
+						velocity.y = JUMP_VELOCITY
+						$Sound_attack_player_1.stream = sound_jump
+						$Sound_attack_player_1.play()
 				# Get the input direction and handle the movement/deceleration.
 				# As good practice, you should replace UI actions with custom gameplay actions.
 				if attacking == false:
 					if Input.is_action_pressed("move_left_p_1"):
 						direction = -1
+						$Sound_running.play 
 					elif Input.is_action_pressed("move_right_p_1"):
 						direction = 1
+						$Sound_running.play 
 					else:
 						direction = 0
 				elif animation_player.current_animation == "attack_1":
@@ -113,12 +119,17 @@ func _physics_process(delta: float) -> void:
 				rolling = true
 				$AnimatedSprite2D.play("roll")
 				velocity.x = animated_sprite_2d.scale.x * SPEED * DASH_SPEED
+				
+			var was_on_floor = is_on_floor()
+			
+			if was_on_floor && !is_on_floor():
+				coyote_timer.start()
+			 
 			move_and_slide()
 		else:
 			if animated_sprite_2d.animation != "death":
 				animated_sprite_2d.play("death")
 				$ProgressBar.visible = false
-				Global.score_player_2 += 1
 				#$reset_timer.start()
 
 func _on_attack_cooldown_timeout() -> void:
@@ -141,22 +152,31 @@ func _on_sword_hit_body_entered(body: CharacterBody2D) -> void:
 	if body.has_method("player_2"):
 		if animation_player.current_animation == "attack_1":
 			body.take_damage(15)
+			Input.start_joy_vibration(0,0, 1,0.4)
 			$Sound_attack_player_1.stream = sound_damage_uhh
 			$Sound_attack_player_1.play()
 		if animation_player.current_animation == "attack_2":
 			body.take_damage(35)
+			Input.start_joy_vibration(0,0, 1,0.4)
 			$Sound_attack_player_1.stream = sound_damage_uhh
 			$Sound_attack_player_1.play()
 		if animation_player.current_animation == "attack_3":
 			body.take_damage(30)
+			Input.start_joy_vibration(0,0, 1,0.4)
 			$Sound_attack_player_1.stream = sound_damage_uhh
 			$Sound_attack_player_1.play()
 
+
 func take_damage(damage):
 	Global.health_player_1 -= damage
+	if Global.health_player_1 <= 0:
+		Global.score_player_2 += 1
+		Global.player_died = true
+
 
 func player_1():
 	pass
+
 
 func _on_reset_timer_timeout() -> void:
 	if Global.score_player_1 < 10 && Global.score_player_2 < 10:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=89 format=3 uid="uid://dmd0adi24i7fk"]
+[gd_scene load_steps=90 format=3 uid="uid://dmd0adi24i7fk"]
 
 [ext_resource type="Texture2D" uid="uid://bv8d07q2q1ay0" path="res://assets/Colour1/Outline/120x80_PNGSheets/_Idle.png" id="1_3oei5"]
 [ext_resource type="Texture2D" uid="uid://c8ckk0l2nhdj8" path="res://assets/Colour1/Outline/120x80_PNGSheets/_AttackNoMovement.png" id="1_4imsf"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://buyois7mdxxe7" path="res://assets/Colour1/Outline/120x80_PNGSheets/_Roll.png" id="7_cidg7"]
 [ext_resource type="FontFile" uid="uid://d2nw867cp0wxx" path="res://assets/Fonts/lemon_milk/LEMONMILK-Light.otf" id="11_qe5r5"]
 [ext_resource type="AudioStream" uid="uid://brvfjsgil8ff1" path="res://sounds/sword-sound-effect-1.mp3" id="12_gsyjb"]
+[ext_resource type="AudioStream" uid="uid://bimik5msg82dp" path="res://sounds/running-sounds.mp3" id="13_yi815"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x5xvn"]
 atlas = ExtResource("1_4imsf")
@@ -755,7 +756,7 @@ shape = SubResource("RectangleShape2D_i12e5")
 disabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -18)
+position = Vector2(3, -18)
 shape = SubResource("CapsuleShape2D_qhies")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -790,6 +791,13 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Sound_attack_player_1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_gsyjb")
+
+[node name="Sound_running" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_yi815")
+
+[node name="CoyoteTimer" type="Timer" parent="."]
+wait_time = 0.15
+one_shot = true
 
 [connection signal="body_entered" from="AnimatedSprite2D/sword_hit" to="." method="_on_sword_hit_body_entered"]
 [connection signal="timeout" from="attack_cooldown" to="." method="_on_attack_cooldown_timeout"]

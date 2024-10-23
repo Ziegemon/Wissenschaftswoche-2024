@@ -1,44 +1,37 @@
 [gd_scene load_steps=2 format=3 uid="uid://bl5tmdvv0mgx8"]
 
-[ext_resource type="Script" path="res://ui.gd" id="1_7y0w5"]
+[ext_resource type="Script" path="res://scripts/ui.gd" id="1_g7vnh"]
 
-[node name="UI" type="Control"]
+[node name="Ui" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_7y0w5")
+script = ExtResource("1_g7vnh")
 
 [node name="HealthBar_player_1" type="ProgressBar" parent="."]
-modulate = Color(0, 0.734091, 0.7343, 1)
+modulate = Color(0.113725, 1, 1, 1)
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.191
-anchor_top = 0.012
-anchor_right = 0.191
-anchor_bottom = 0.012
-offset_left = -220.032
-offset_top = -7.776
-offset_right = 218.968
-offset_bottom = 7.224
+offset_left = 53.0
+offset_top = 34.0
+offset_right = 492.0
+offset_bottom = 49.0
 step = 1.0
 value = 100.0
 show_percentage = false
 
 [node name="HealthBar_player_2" type="ProgressBar" parent="."]
-modulate = Color(0.884314, 3.20069e-06, 1.15514e-06, 1)
+modulate = Color(1, 0, 0, 1)
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.809
-anchor_top = 0.012
-anchor_right = 0.809
-anchor_bottom = 0.012
-offset_left = -218.968
-offset_top = -7.776
-offset_right = 220.032
-offset_bottom = 7.224
+offset_left = 635.0
+offset_top = 34.0
+offset_right = 1074.0
+offset_bottom = 49.0
 step = 1.0
 value = 100.0
+fill_mode = 1
 show_percentage = false

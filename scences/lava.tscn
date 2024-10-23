@@ -97,7 +97,7 @@ size = Vector2(5656, 764)
 script = ExtResource("1_85a3j")
 
 [node name="TileMap" type="TileMap" parent="."]
-position = Vector2(0, 650)
+position = Vector2(0, 700)
 scale = Vector2(0.982015, 1.16433)
 tile_set = SubResource("TileSet_ydsgo")
 format = 2

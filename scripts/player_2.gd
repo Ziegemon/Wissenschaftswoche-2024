@@ -23,6 +23,7 @@ func _physics_process(delta: float) -> void:
 	
 	borderTeleport($".")
 	healthbarUpdate()
+	raiseGame()
 	
 	if Global.game_paused == false:
 		if Global.health_player_2 <= 0:
@@ -33,11 +34,12 @@ func _physics_process(delta: float) -> void:
 				velocity += get_gravity() * delta
 			if rolling == false:
 				
-					# Handle jump.
-				if Input.is_action_just_pressed("jump_p_2") and is_on_floor():
-					velocity.y = JUMP_VELOCITY
-					$Sound_attack_player_2.stream = sound_jump
-					$Sound_attack_player_2.play()
+				if attacking == false || animation_player.current_animation == "attack_1":
+						# Handle jump.
+					if Input.is_action_just_pressed("jump_p_2") and is_on_floor():
+						velocity.y = JUMP_VELOCITY
+						$Sound_attack_player_2.stream = sound_jump
+						$Sound_attack_player_2.play()
 				# Get the input direction and handle the movement/deceleration.
 				# As good practice, you should replace UI actions with custom gameplay actions.
 				if attacking == false:
@@ -67,6 +69,7 @@ func _physics_process(delta: float) -> void:
 					if Input.is_action_just_pressed("attack_1_p_2"):
 							animation_player.play("attack_1")
 							attack_cooldown.start(0.5)
+							Input.start_joy_vibration(0,1,0,0.3)
 							attacking = true
 							$Sound_attack_player_2.stream = sound_attack_1
 							$Sound_attack_player_2.play()
@@ -80,16 +83,19 @@ func _physics_process(delta: float) -> void:
 							await get_tree().create_timer(0.25).timeout
 							$Sound_attack_player_2.stream = sound_attack_2
 							$Sound_attack_player_2.play()
+							Input.start_joy_vibration(0,1,0,0.4)
 							
 						if Input.is_action_just_pressed("double_attack_p_2"):
 							animation_player.play("attack_3")
 							attack_cooldown.start(1.5)
+							Input.start_joy_vibration(0,1,0,0.4)
 							attacking = true
 							$Sound_attack_player_2.stream = sound_attack_1
 							$Sound_attack_player_2.play()
 							await get_tree().create_timer(0.5).timeout
 							$Sound_attack_player_2.stream = sound_attack_2
 							$Sound_attack_player_2.play()
+							Input.start_joy_vibration(0,1,0,0.4)
 							
 				if attacking == false:
 					if is_on_floor():
@@ -116,7 +122,6 @@ func _physics_process(delta: float) -> void:
 			if animated_sprite_2d.animation != "death":
 				animated_sprite_2d.play("death")
 				$ProgressBar.visible = false
-				Global.score_player_1 += 1
 				#$reset_timer.start()
 
 func _on_attack_cooldown_timeout() -> void:
@@ -152,6 +157,9 @@ func _on_sword_hit_body_entered(body: CharacterBody2D) -> void:
 
 func take_damage(damage):
 	Global.health_player_2 -= damage
+	if Global.health_player_2 <= 0:
+		Global.score_player_1 += 1
+		Global.player_died = true
 
 func player_2():
 	pass
@@ -173,3 +181,8 @@ func borderTeleport(body: CharacterBody2D):
 
 func healthbarUpdate():
 	$ProgressBar.value = Global.health_player_2
+
+
+func raiseGame():
+	if Global.lavaAtCerteinHeight == true:
+		$ProgressBar.position.y = $ProgressBar.position.y - 0.036
