@@ -541,8 +541,8 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i12e5"]
 size = Vector2(34, 42)
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qhies"]
-height = 36.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o81ug"]
+size = Vector2(20, 37)
 
 [sub_resource type="Animation" id="Animation_xvga0"]
 length = 0.001
@@ -756,8 +756,8 @@ shape = SubResource("RectangleShape2D_i12e5")
 disabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(3, -18)
-shape = SubResource("CapsuleShape2D_qhies")
+position = Vector2(4, -18.5)
+shape = SubResource("RectangleShape2D_o81ug")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
